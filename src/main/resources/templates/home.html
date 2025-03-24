@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SecureApp | Authentification avec Keycloak & Spring Boot</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="font-sans antialiased text-gray-800 bg-gray-50">
+<!-- Navigation -->
+<header class="bg-white shadow-sm">
+    <nav class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="flex justify-between h-16">
+            <div class="flex">
+                <div class="flex-shrink-0 flex items-center">
+                    <span class="text-2xl font-bold text-red-600">SecureApp</span>
+                </div>
+                <div class="hidden sm:ml-6 sm:flex sm:space-x-8">
+                    <a href="#" class="border-red-500 text-gray-900 inline-flex items-center px-1 pt-1 border-b-2 text-sm font-medium">
+                        Accueil
+                    </a>
+                    <a href="#" class="border-transparent text-gray-500 hover:border-gray-300 hover:text-gray-700 inline-flex items-center px-1 pt-1 border-b-2 text-sm font-medium">
+                        Documentation
+                    </a>
+                    <a href="#" class="border-transparent text-gray-500 hover:border-gray-300 hover:text-gray-700 inline-flex items-center px-1 pt-1 border-b-2 text-sm font-medium">
+                        Tutoriels
+                    </a>
+                    <a href="#" class="border-transparent text-gray-500 hover:border-gray-300 hover:text-gray-700 inline-flex items-center px-1 pt-1 border-b-2 text-sm font-medium">
+                        Contact
+                    </a>
+                </div>
+            </div>
+            <div class="hidden sm:ml-6 sm:flex sm:items-center">
+                <a href="/logout" class="bg-red-600 hover:bg-red-700 text-white px-4 py-2 rounded-md text-sm font-medium transition duration-300 ease-in-out">
+                    Se déconnecter
+                </a>
+            </div>
+
+            <div class="flex items-center sm:hidden">
+                <button type="button" class="inline-flex items-center justify-center p-2 rounded-md text-gray-400 hover:text-gray-500 hover:bg-gray-100">
+                    <svg class="h-6 w-6" stroke="currentColor" fill="none" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+                    </svg>
+                </button>
+            </div>
+        </div>
+    </nav>
+</header>
+
+<!-- Hero Section -->
+<section class="bg-red-700">
+    <div class="max-w-7xl mx-auto py-12 px-4 sm:px-6 lg:py-16 lg:px-8 flex flex-col lg:flex-row items-center">
+        <div class="lg:w-1/2 lg:pr-12 mb-10 lg:mb-0">
+            <h1 class="text-4xl font-extrabold tracking-tight text-white sm:text-5xl lg:text-6xl">
+                Sécurisez vos applications Spring avec Keycloak
+            </h1>
+            <p class="mt-6 text-xl text-red-100 max-w-3xl">
+                Une solution complète d'authentification et d'autorisation pour vos applications d'entreprise avec Spring Boot et Keycloak.
+            </p>
+            <div class="mt-10 flex flex-col sm:flex-row gap-4">
+                <a href="#" class="w-full sm:w-auto flex items-center justify-center px-8 py-3 border border-transparent text-base font-medium rounded-md text-red-700 bg-white hover:bg-gray-50 md:py-4 md:text-lg md:px-10">
+                    Démarrer
+                </a>
+                <a href="#" class="w-full sm:w-auto flex items-center justify-center px-8 py-3 border border-transparent text-base font-medium rounded-md text-white bg-red-500 hover:bg-red-600 md:py-4 md:text-lg md:px-10">
+                    Documentation
+                </a>
+            </div>
+        </div>
+
+</section>
+
+<!-- Features Section -->
+<section class="py-12 bg-white">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center">
+            <h2 class="text-base font-semibold text-red-600 tracking-wide uppercase">Fonctionnalités</h2>
+            <p class="mt-2 text-3xl font-extrabold text-gray-900 sm:text-4xl">
+                Keycloak & Spring Boot
+            </p>
+            <p class="mt-4 max-w-2xl text-xl text-gray-500 mx-auto">
+                Découvrez comment sécuriser facilement vos applications Spring avec Keycloak.
+            </p>
+        </div>
+
+        <div class="mt-12 grid gap-8 grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
+            <!-- Feature 1 -->
+            <div class="bg-gray-50 overflow-hidden shadow rounded-lg">
+                <div class="px-4 py-5 sm:p-6">
+                    <div class="flex items-center">
+                        <div class="flex-shrink-0 bg-red-500 rounded-md p-3">
+                            <svg class="h-6 w-6 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z" />
+                            </svg>
+                        </div>
+                        <h3 class="ml-4 text-lg font-medium text-gray-900">Authentification SSO</h3>
+                    </div>
+                    <div class="mt-4 text-base text-gray-500">
+                        Implémentez facilement l'authentification unique (SSO) pour toutes vos applications avec le support OAuth 2.0 et OpenID Connect.
+                    </div>
+                </div>
+            </div>
+
+            <!-- Feature 2 -->
+            <div class="bg-gray-50 overflow-hidden shadow rounded-lg">
+                <div class="px-4 py-5 sm:p-6">
+                    <div class="flex items-center">
+                        <div class="flex-shrink-0 bg-red-500 rounded-md p-3">
+                            <svg class="h-6 w-6 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
+                            </svg>
+                        </div>
+                        <h3 class="ml-4 text-lg font-medium text-gray-900">Gestion fine des accès</h3>
+                    </div>
+                    <div class="mt-4 text-base text-gray-500">
+                        Contrôlez l'accès à vos API et ressources avec une gestion basée sur les rôles (RBAC) et les attributs (ABAC).
+                    </div>
+                </div>
+            </div>
+
+            <!-- Feature 3 -->
+            <div class="bg-gray-50 overflow-hidden shadow rounded-lg">
+                <div class="px-4 py-5 sm:p-6">
+                    <div class="flex items-center">
+                        <div class="flex-shrink-0 bg-red-500 rounded-md p-3">
+                            <svg class="h-6 w-6 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H5a2 2 0 00-2 2v9a2 2 0 002 2h14a2 2 0 002-2V8a2 2 0 00-2-2h-5m-4 0V5a2 2 0 114 0v1m-4 0a2 2 0 104 0m-5 8a2 2 0 100-4 2 2 0 000 4zm0 0c1.306 0 2.417.835 2.83 2M9 14a3.001 3.001 0 00-2.83 2M15 11h3m-3 4h2" />
+                            </svg>
+                        </div>
+                        <h3 class="ml-4 text-lg font-medium text-gray-900">Gestion des utilisateurs</h3>
+                    </div>
+                    <div class="mt-4 text-base text-gray-500">
+                        Une interface complète pour gérer les utilisateurs, les groupes, les rôles et les sessions sans avoir à écrire de code.
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Code Examples -->
+
+
+<!-- Keycloak Information -->
+<section class="py-12 bg-white">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center">
+            <h2 class="text-base font-semibold text-red-600 tracking-wide uppercase">À propos de Keycloak</h2>
+            <p class="mt-2 text-3xl font-extrabold text-gray-900 sm:text-4xl">
+                Le gestionnaire d'identité open source
+            </p>
+        </div>
+
+        <div class="mt-12 max-w-lg mx-auto grid gap-8 grid-cols-1 lg:max-w-none lg:grid-cols-2">
+            <div class="bg-gray-50 overflow-hidden shadow rounded-lg">
+                <div class="px-6 py-8">
+                    <h3 class="text-lg font-medium text-gray-900 mb-4">Caractéristiques principales</h3>
+                    <ul class="space-y-3 text-gray-500">
+                        <li class="flex">
+                            <svg class="h-5 w-5 text-red-500 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+                            </svg>
+                            <span>Authentification unique (SSO) et déconnexion unique</span>
+                        </li>
+                        <li class="flex">
+                            <svg class="h-5 w-5 text-red-500 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+                            </svg>
+                            <span>Support des standards OAuth 2.0, OpenID Connect et SAML 2.0</span>
+                        </li>
+                        <li class="flex">
+                            <svg class="h-5 w-5 text-red-500 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+                            </svg>
+                            <span>Intégration avec Active Directory, LDAP, et d'autres solutions d'identité</span>
+                        </li>
+                        <li class="flex">
+                            <svg class="h-5 w-5 text-red-500 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+                            </svg>
+                            <span>Authentification à deux facteurs (2FA) et authentification sociale</span>
+                        </li>
+                        <li class="flex">
+                            <svg class="h-5 w-5 text-red-500 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+                            </svg>
+                            <span>Thèmes personnalisables et adaptables à votre marque</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="bg-gray-50 overflow-hidden shadow rounded-lg">
+                <div class="px-6 py-8">
+                    <h3 class="text-lg font-medium text-gray-900 mb-4">Avantages avec Spring Boot</h3>
+                    <ul class="space-y-3 text-gray-500">
+                        <li class="flex">
+                            <svg class="h-5 w-5 text-red-500 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+                            </svg>
+                            <span>Intégration facile via Spring Security OAuth2</span>
+                        </li>
+                        <li class="flex">
+                            <svg class="h-5 w-5 text-red-500 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+                            </svg>
+                            <span>Séparation des préoccupations : gérez l'authentification avec Keycloak, concentrez-vous sur votre logique métier avec Spring</span>
+                        </li>
+                        <li class="flex">
+                            <svg class="h-5 w-5 text-red-500 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+                            </svg>
+                            <span>Prise en charge des JWT pour les API REST sécurisées</span>
+                        </li>
+                        <li class="flex">
+                            <svg class="h-5 w-5 text-red-500 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+                            </svg>
+                            <span>Migration facile des applications existantes</span>
+                        </li>
+                        <li class="flex">
+                            <svg class="h-5 w-5 text-red-500 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+                            </svg>
+                            <span>Environnement de développement cohérent et facile à configurer</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- CTA -->
+
+
+<!-- Footer -->
+<footer class="bg-white">
+    <div class="max-w-7xl mx-auto py-12 px-4 sm:px-6 lg:px-8">
+        <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+            <div class="col-span-1 md:col-span-2">
+                <span class="text-2xl font-bold text-red-600">SecureApp</span>
+                <p class="mt-4 text-base text-gray-500">
+                    Une solution complète pour l'intégration de Keycloak avec des applications Spring Boot, offrant une sécurité robuste et une expérience utilisateur fluide.
+                </p>
+            </div>
+            <div>
+                <h3 class="text-sm font-semibold text-gray-400 tracking-wider uppercase">
+                    Ressources
+                </h3>
+                <ul class="mt-4 space-y-4">
+                    <li><a href="#" class="text-base text-gray-500 hover:text-gray-900">Documentation</a></li>
+                    <li><a href="#" class="text-base text-gray-500 hover:text-gray-900">Tutoriels</a></li>
+                    <li><a href="#" class="text-base text-gray-500 hover:text-gray-900">Exemples de code</a></li>
+                </ul>
+            </div>
+            <div>
+                <h3 class="text-sm font-semibold text-gray-400 tracking-wider uppercase">
+                    Liens utiles
+                </h3>
+                <ul class="mt-4 space-y-4">
+                    <li><a href="#" class="text-base text-gray-500 hover:text-gray-900">Documentation Keycloak</a></li>
+                    <li><a href="#" class="text-base text-gray-500 hover:text-gray-900">Spring Security</a></li>
+                    <li><a href="#" class="text-base text-gray-500 hover:text-gray-900">Forum d'aide</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="mt-8 border-t border-gray-200 pt-8">
+            <p class="text-base text-gray-400 text-center">
+                &copy; 2025 SecureApp. Tous droits réservés.
+            </p>
+        </div>
+    </div>
+</footer>
+</body>
+</html>
