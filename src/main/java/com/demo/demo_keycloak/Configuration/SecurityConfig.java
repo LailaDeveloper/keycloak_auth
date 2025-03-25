@@ -1,4 +1,5 @@
 package com.demo.demo_keycloak.Configuration;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
@@ -15,25 +16,27 @@ import java.util.*;
 @EnableWebSecurity
 public class SecurityConfig {
 
+    @Value("${keycloak.logout-url}")
+    String KEYCLOAK_LOGOUT_URL;
+
     @Bean
     public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
         http
             .authorizeHttpRequests(authorize -> authorize
-
                 .requestMatchers("/admin").hasRole("ADMIN") // Accès réservé aux admins
                 .requestMatchers("/client").hasRole("CLIENT") // Accès réservé aux clients
-                    .requestMatchers("/images/intelcom.png").permitAll()
                 .anyRequest().authenticated() // Toutes les autres requêtes nécessitent une authentification
             )
             .oauth2Login(oauth2 -> oauth2
-                .defaultSuccessUrl("/", true) // Redirection après une authentification réussie
+                .defaultSuccessUrl("/home", true) // Redirection après une authentification réussie
                 .userInfoEndpoint(userInfo -> userInfo
                     .userAuthoritiesMapper(this.userAuthoritiesMapper()) // Utilise le mapper personnalisé
                 )
             )
                 .logout(logout -> logout
-                        .logoutSuccessUrl("http://localhost:8080/realms/intelcom_platform/protocol/openid-connect/logout?redirect_uri=http://localhost:8080/login") // Redirection après une déconnexion
+                        .disable() // Désactive complètement le logout de Spring Security
                 );
+
         return http.build();
     }
 
