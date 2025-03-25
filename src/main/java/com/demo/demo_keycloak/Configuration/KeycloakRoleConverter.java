@@ -16,8 +16,10 @@ public class KeycloakRoleConverter implements Converter<Jwt, Collection<GrantedA
 
     @Override
     public Collection<GrantedAuthority> convert(Jwt jwt) {
+
         // Récupère les rôles du token JWT
         List<String> roles = (List<String>) jwt.getClaims().get("roles");
+
         if (roles == null || roles.isEmpty()) {
             return Collections.emptyList();
         }
@@ -37,5 +39,7 @@ public class KeycloakRoleConverter implements Converter<Jwt, Collection<GrantedA
                 })
                 .collect(Collectors.toList());
     }
+
+
 }
 

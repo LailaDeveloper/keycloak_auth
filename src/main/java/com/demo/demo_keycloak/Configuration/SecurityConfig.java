@@ -42,7 +42,6 @@ public class SecurityConfig {
         return (authorities) -> {
             Set<GrantedAuthority> mappedAuthorities = new HashSet<>();
 
-            System.out.println("Authorities reçues : " + authorities);
             authorities.forEach(authority -> {
                 if (authority instanceof OidcUserAuthority) {
                     OidcUserAuthority oidcUserAuthority = (OidcUserAuthority) authority;
@@ -50,7 +49,6 @@ public class SecurityConfig {
                     // Récupère les rôles du token JWT
                     Map<String, Object> claims = oidcUserAuthority.getIdToken().getClaims();
 
-                    System.out.println("Claims du token : " + claims);
 
                     List<String> roles = (List<String>) claims.get("roles");
 
